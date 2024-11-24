@@ -1,0 +1,44 @@
+[10:50:51] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[10:50:55] [ServerMain/INFO]: Loaded 1174 recipes
+[10:50:55] [ServerMain/INFO]: Loaded 1271 advancements
+[10:50:55] [Server thread/INFO]: Starting minecraft server version 1.20.4
+[10:50:55] [Server thread/INFO]: Loading properties
+[10:50:55] [Server thread/INFO]: This server is running Paper version git-Paper-497 (MC: 1.20.4) (Implementing API version 1.20.4-R0.1-SNAPSHOT) (Git: d8d54d9 on ver/1.20.4)
+[10:50:56] [Server thread/INFO]: Server Ping Player Sample Count: 12
+[10:50:56] [Server thread/INFO]: Using 4 threads for Netty based IO
+[10:50:56] [Server thread/WARN]: [!] The timings profiler has been enabled but has been scheduled for removal from Paper in the future.
+    We recommend installing the spark profiler as a replacement: https://spark.lucko.me/
+    For more information please visit: https://github.com/PaperMC/Paper/issues/8948
+[10:50:56] [Server thread/INFO]: [ChunkTaskScheduler] Chunk system is using 1 I/O threads, 2 worker threads, and gen parallelism of 2 threads
+[10:50:57] [Server thread/INFO]: Default game type: SURVIVAL
+[10:50:57] [Server thread/INFO]: Generating keypair
+[10:50:57] [Server thread/INFO]: Starting Minecraft server on *:25565
+[10:50:57] [Server thread/INFO]: Using default channel type
+[10:50:57] [Server thread/INFO]: Paper: Using Java compression from Velocity.
+[10:50:57] [Server thread/INFO]: Paper: Using Java cipher from Velocity.
+[10:50:57] [Server thread/INFO]: [SpigotLibraryLoader] [OnlyUp] Loading 3 libraries... please wait
+[10:50:58] [Server thread/INFO]: [SpigotLibraryLoader] [OnlyUp] Loaded library C:\Users\jespe\Desktop\Code\OnlyUp\run\libraries\org\jetbrains\kotlin\kotlin-stdlib\2.0.0\kotlin-stdlib-2.0.0.jar
+[10:50:58] [Server thread/INFO]: [SpigotLibraryLoader] [OnlyUp] Loaded library C:\Users\jespe\Desktop\Code\OnlyUp\run\libraries\org\jetbrains\annotations\13.0\annotations-13.0.jar
+[10:50:58] [Server thread/INFO]: [SpigotLibraryLoader] [OnlyUp] Loaded library C:\Users\jespe\Desktop\Code\OnlyUp\run\libraries\org\jetbrains\kotlinx\kotlinx-serialization-json\1.7.1\kotlinx-serialization-json-1.7.1.jar
+[10:50:58] [Server thread/INFO]: [SpigotLibraryLoader] [OnlyUp] Loaded library C:\Users\jespe\Desktop\Code\OnlyUp\run\libraries\org\jetbrains\kotlinx\kotlinx-serialization-json-jvm\1.7.1\kotlinx-serialization-json-jvm-1.7.1.jar
+[10:50:58] [Server thread/INFO]: [SpigotLibraryLoader] [OnlyUp] Loaded library C:\Users\jespe\Desktop\Code\OnlyUp\run\libraries\org\jetbrains\kotlin\kotlin-stdlib-common\2.0.0\kotlin-stdlib-common-2.0.0.jar
+[10:50:58] [Server thread/INFO]: [SpigotLibraryLoader] [OnlyUp] Loaded library C:\Users\jespe\Desktop\Code\OnlyUp\run\libraries\org\jetbrains\kotlinx\kotlinx-serialization-core-jvm\1.7.1\kotlinx-serialization-core-jvm-1.7.1.jar
+[10:50:58] [Server thread/INFO]: [SpigotLibraryLoader] [OnlyUp] Loaded library C:\Users\jespe\Desktop\Code\OnlyUp\run\libraries\org\jetbrains\kotlinx\kotlinx-coroutines-core\1.9.0-RC\kotlinx-coroutines-core-1.9.0-RC.jar
+[10:50:58] [Server thread/INFO]: [SpigotLibraryLoader] [OnlyUp] Loaded library C:\Users\jespe\Desktop\Code\OnlyUp\run\libraries\org\jetbrains\kotlinx\kotlinx-coroutines-core-jvm\1.9.0-RC\kotlinx-coroutines-core-jvm-1.9.0-RC.jar
+[10:50:58] [Server thread/INFO]: [OnlyUp] Loading server plugin OnlyUp v1.1.0
+[10:50:58] [Server thread/INFO]: Server permissions file permissions.yml is empty, ignoring it
+[10:50:58] [Server thread/INFO]: [OnlyUp] Enabling OnlyUp v1.1.0
+[10:50:58] [Server thread/INFO]: Preparing level "world"
+[10:50:59] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
+[10:51:07] [Server thread/WARN]: [EntityLookup] Entity uuid already exists: b3dd5856-6247-4fb0-9fb5-6e7d557ccb44, mapped to EntityBee['Bee'/14, uuid='b3dd5856-6247-4fb0-9fb5-6e7d557ccb44', l='ServerLevel[world]', x=-80.54, y=72.71, z=-1.97, cpos=[-6, -1], tl=255768, v=true], can't add EntityBee['Bee'/57, uuid='b3dd5856-6247-4fb0-9fb5-6e7d557ccb44', l='ServerLevel[world]', x=-82.70, y=72.13, z=0.47, cpos=[-6, 0], tl=255799, v=false]
+[10:51:08] [Server thread/INFO]: Time elapsed: 8326 ms
+[10:51:08] [Server thread/INFO]: Preparing start region for dimension minecraft:the_nether
+[10:51:08] [Server thread/INFO]: Time elapsed: 150 ms
+[10:51:08] [Server thread/INFO]: Preparing start region for dimension minecraft:the_end
+[10:51:08] [Server thread/INFO]: Time elapsed: 25 ms
+[10:51:08] [Server thread/INFO]: Running delayed init tasks
+[10:51:08] [Server thread/INFO]: Done (12.588s)! For help, type "help"
+[10:51:08] [Server thread/INFO]: Timings Reset
+[10:52:21] [User Authenticator #0/INFO]: UUID of player tnsjesper is 029a0271-4e6c-4cb8-9310-e79d2a92157a
+[10:52:22] [Server thread/INFO]: tnsjesper joined the game
+[10:52:22] [Server thread/INFO]: tnsjesper[/127.0.0.1:63022] logged in with entity id 283 at ([world]10.469559313187428, 23.0, 15.516493567244721)
