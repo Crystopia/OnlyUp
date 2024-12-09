@@ -5,8 +5,8 @@ description: OnlyUp is a Minecraft mod that adds a new dimension to the game.
 load: STARTUP
 author: Crystopia
 libraries:
-  - org.jetbrains.kotlin:kotlin-stdlib:2.0.0
-  - org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.1
-  - org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0-RC
+  - org.jetbrains.kotlin:kotlin-stdlib:2.0.20
+  - org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3
+  - org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0
 api-version: "1.16"
 folia-supported: false

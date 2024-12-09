@@ -1,13 +1,16 @@
 package net.crystopia.onlyup
 
+import dev.jorel.commandapi.CommandAPI
+import dev.jorel.commandapi.CommandAPIBukkitConfig
+import net.crystopia.onlyup.commands.OnlyUpCommand
 import net.crystopia.onlyup.events.PlayerEventListener
 import org.bukkit.Bukkit
 import org.bukkit.Location
 import org.bukkit.plugin.java.JavaPlugin
 import java.sql.Connection
 import java.sql.DriverManager
-import java.sql.PreparedStatement
-import java.util.UUID
+import java.util.*
+
 
 class OnlyUp : JavaPlugin() {
 
@@ -24,11 +27,17 @@ class OnlyUp : JavaPlugin() {
     )
 
     override fun onEnable() {
+        CommandAPI.onLoad(CommandAPIBukkitConfig(this))
+        CommandAPI.onEnable()
         setupDatabase()
+
+        OnlyUpCommand()
+
         server.pluginManager.registerEvents(PlayerEventListener(this), this)
     }
 
     override fun onDisable() {
+        CommandAPI.onDisable()
         connection.close()
     }
 
