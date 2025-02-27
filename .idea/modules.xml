@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/OnlyUp.main.iml" filepath="$PROJECT_DIR$/.idea/modules/OnlyUp.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/OnlyUp.test.iml" filepath="$PROJECT_DIR$/.idea/modules/OnlyUp.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/net.crystopia.OnlyUp.main.iml" filepath="$PROJECT_DIR$/.idea/modules/net.crystopia.OnlyUp.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/net.crystopia.OnlyUp.test.iml" filepath="$PROJECT_DIR$/.idea/modules/net.crystopia.OnlyUp.test.iml" />
     </modules>
   </component>
 </project>

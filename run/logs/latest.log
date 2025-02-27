@@ -1,44 +1,271 @@
-[10:50:51] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
-[10:50:55] [ServerMain/INFO]: Loaded 1174 recipes
-[10:50:55] [ServerMain/INFO]: Loaded 1271 advancements
-[10:50:55] [Server thread/INFO]: Starting minecraft server version 1.20.4
-[10:50:55] [Server thread/INFO]: Loading properties
-[10:50:55] [Server thread/INFO]: This server is running Paper version git-Paper-497 (MC: 1.20.4) (Implementing API version 1.20.4-R0.1-SNAPSHOT) (Git: d8d54d9 on ver/1.20.4)
-[10:50:56] [Server thread/INFO]: Server Ping Player Sample Count: 12
-[10:50:56] [Server thread/INFO]: Using 4 threads for Netty based IO
-[10:50:56] [Server thread/WARN]: [!] The timings profiler has been enabled but has been scheduled for removal from Paper in the future.
-    We recommend installing the spark profiler as a replacement: https://spark.lucko.me/
-    For more information please visit: https://github.com/PaperMC/Paper/issues/8948
-[10:50:56] [Server thread/INFO]: [ChunkTaskScheduler] Chunk system is using 1 I/O threads, 2 worker threads, and gen parallelism of 2 threads
-[10:50:57] [Server thread/INFO]: Default game type: SURVIVAL
-[10:50:57] [Server thread/INFO]: Generating keypair
-[10:50:57] [Server thread/INFO]: Starting Minecraft server on *:25565
-[10:50:57] [Server thread/INFO]: Using default channel type
-[10:50:57] [Server thread/INFO]: Paper: Using Java compression from Velocity.
-[10:50:57] [Server thread/INFO]: Paper: Using Java cipher from Velocity.
-[10:50:57] [Server thread/INFO]: [SpigotLibraryLoader] [OnlyUp] Loading 3 libraries... please wait
-[10:50:58] [Server thread/INFO]: [SpigotLibraryLoader] [OnlyUp] Loaded library C:\Users\jespe\Desktop\Code\OnlyUp\run\libraries\org\jetbrains\kotlin\kotlin-stdlib\2.0.0\kotlin-stdlib-2.0.0.jar
-[10:50:58] [Server thread/INFO]: [SpigotLibraryLoader] [OnlyUp] Loaded library C:\Users\jespe\Desktop\Code\OnlyUp\run\libraries\org\jetbrains\annotations\13.0\annotations-13.0.jar
-[10:50:58] [Server thread/INFO]: [SpigotLibraryLoader] [OnlyUp] Loaded library C:\Users\jespe\Desktop\Code\OnlyUp\run\libraries\org\jetbrains\kotlinx\kotlinx-serialization-json\1.7.1\kotlinx-serialization-json-1.7.1.jar
-[10:50:58] [Server thread/INFO]: [SpigotLibraryLoader] [OnlyUp] Loaded library C:\Users\jespe\Desktop\Code\OnlyUp\run\libraries\org\jetbrains\kotlinx\kotlinx-serialization-json-jvm\1.7.1\kotlinx-serialization-json-jvm-1.7.1.jar
-[10:50:58] [Server thread/INFO]: [SpigotLibraryLoader] [OnlyUp] Loaded library C:\Users\jespe\Desktop\Code\OnlyUp\run\libraries\org\jetbrains\kotlin\kotlin-stdlib-common\2.0.0\kotlin-stdlib-common-2.0.0.jar
-[10:50:58] [Server thread/INFO]: [SpigotLibraryLoader] [OnlyUp] Loaded library C:\Users\jespe\Desktop\Code\OnlyUp\run\libraries\org\jetbrains\kotlinx\kotlinx-serialization-core-jvm\1.7.1\kotlinx-serialization-core-jvm-1.7.1.jar
-[10:50:58] [Server thread/INFO]: [SpigotLibraryLoader] [OnlyUp] Loaded library C:\Users\jespe\Desktop\Code\OnlyUp\run\libraries\org\jetbrains\kotlinx\kotlinx-coroutines-core\1.9.0-RC\kotlinx-coroutines-core-1.9.0-RC.jar
-[10:50:58] [Server thread/INFO]: [SpigotLibraryLoader] [OnlyUp] Loaded library C:\Users\jespe\Desktop\Code\OnlyUp\run\libraries\org\jetbrains\kotlinx\kotlinx-coroutines-core-jvm\1.9.0-RC\kotlinx-coroutines-core-jvm-1.9.0-RC.jar
-[10:50:58] [Server thread/INFO]: [OnlyUp] Loading server plugin OnlyUp v1.1.0
-[10:50:58] [Server thread/INFO]: Server permissions file permissions.yml is empty, ignoring it
-[10:50:58] [Server thread/INFO]: [OnlyUp] Enabling OnlyUp v1.1.0
-[10:50:58] [Server thread/INFO]: Preparing level "world"
-[10:50:59] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
-[10:51:07] [Server thread/WARN]: [EntityLookup] Entity uuid already exists: b3dd5856-6247-4fb0-9fb5-6e7d557ccb44, mapped to EntityBee['Bee'/14, uuid='b3dd5856-6247-4fb0-9fb5-6e7d557ccb44', l='ServerLevel[world]', x=-80.54, y=72.71, z=-1.97, cpos=[-6, -1], tl=255768, v=true], can't add EntityBee['Bee'/57, uuid='b3dd5856-6247-4fb0-9fb5-6e7d557ccb44', l='ServerLevel[world]', x=-82.70, y=72.13, z=0.47, cpos=[-6, 0], tl=255799, v=false]
-[10:51:08] [Server thread/INFO]: Time elapsed: 8326 ms
-[10:51:08] [Server thread/INFO]: Preparing start region for dimension minecraft:the_nether
-[10:51:08] [Server thread/INFO]: Time elapsed: 150 ms
-[10:51:08] [Server thread/INFO]: Preparing start region for dimension minecraft:the_end
-[10:51:08] [Server thread/INFO]: Time elapsed: 25 ms
-[10:51:08] [Server thread/INFO]: Running delayed init tasks
-[10:51:08] [Server thread/INFO]: Done (12.588s)! For help, type "help"
-[10:51:08] [Server thread/INFO]: Timings Reset
-[10:52:21] [User Authenticator #0/INFO]: UUID of player tnsjesper is 029a0271-4e6c-4cb8-9310-e79d2a92157a
-[10:52:22] [Server thread/INFO]: tnsjesper joined the game
-[10:52:22] [Server thread/INFO]: tnsjesper[/127.0.0.1:63022] logged in with entity id 283 at ([world]10.469559313187428, 23.0, 15.516493567244721)
+[21:23:09] [ServerMain/INFO]: [bootstrap] Running Java 21 (OpenJDK 64-Bit Server VM 21.0.6+7-LTS; Amazon.com Inc. Corretto-21.0.6.7.1) on Windows 11 10.0 (amd64)
+[21:23:09] [ServerMain/INFO]: [bootstrap] Loading Paper 1.21.4-185-main@0a6e743 (2025-02-26T13:10:43Z) for Minecraft 1.21.4
+[21:23:10] [ServerMain/INFO]: [PluginInitializerManager] Initializing plugins...
+[21:23:10] [Paper Plugin Remapper Thread - 2/INFO]: [PluginRemapper] Remapping plugin 'C:\Users\jespe\Documents\GitHub\OnlyUp\build\libs\OnlyUp-1.1.0-all.jar'...
+[21:23:13] [Paper Plugin Remapper Thread - 2/INFO]: [PluginRemapper] Done remapping plugin 'C:\Users\jespe\Documents\GitHub\OnlyUp\build\libs\OnlyUp-1.1.0-all.jar' in 2276ms.
+[21:23:13] [ServerMain/INFO]: [PluginInitializerManager] Initialized 1 plugin
+[21:23:13] [ServerMain/INFO]: [PluginInitializerManager] Bukkit plugins (1):
+ - OnlyUp (1.1.0)
+[21:23:16] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[21:23:16] [ServerMain/INFO]: [MCTypeRegistry] Initialising converters for DataConverter...
+[21:23:16] [ServerMain/INFO]: [MCTypeRegistry] Finished initialising converters for DataConverter in 220,9ms
+[21:23:18] [ServerMain/INFO]: Loaded 1370 recipes
+[21:23:18] [ServerMain/INFO]: Loaded 1481 advancements
+[21:23:18] [Server thread/INFO]: Starting minecraft server version 1.21.4
+[21:23:18] [Server thread/INFO]: Loading properties
+[21:23:18] [Server thread/INFO]: This server is running Paper version 1.21.4-185-main@0a6e743 (2025-02-26T13:10:43Z) (Implementing API version 1.21.4-R0.1-SNAPSHOT)
+[21:23:18] [Server thread/INFO]: [spark] This server bundles the spark profiler. For more information please visit https://docs.papermc.io/paper/profiling
+[21:23:18] [Server thread/INFO]: Server Ping Player Sample Count: 12
+[21:23:18] [Server thread/INFO]: Using 4 threads for Netty based IO
+[21:23:18] [Server thread/INFO]: [MoonriseCommon] Paper is using 4 worker threads, 1 I/O threads
+[21:23:18] [Server thread/INFO]: [ChunkTaskScheduler] Chunk system is using population gen parallelism: true
+[21:23:19] [Server thread/INFO]: Default game type: SURVIVAL
+[21:23:19] [Server thread/INFO]: Generating keypair
+[21:23:19] [Server thread/INFO]: Starting Minecraft server on *:25565
+[21:23:19] [Server thread/INFO]: Using default channel type
+[21:23:19] [Server thread/INFO]: Paper: Using Java compression from Velocity.
+[21:23:19] [Server thread/INFO]: Paper: Using Java cipher from Velocity.
+[21:23:19] [Server thread/INFO]: [SpigotLibraryLoader] [OnlyUp] Loading 1 libraries... please wait
+[21:23:19] [Server thread/INFO]: [SpigotLibraryLoader] [OnlyUp] Loaded library C:\Users\jespe\Documents\GitHub\OnlyUp\run\libraries\org\jetbrains\kotlin\kotlin-stdlib\2.1.10\kotlin-stdlib-2.1.10.jar
+[21:23:19] [Server thread/INFO]: [SpigotLibraryLoader] [OnlyUp] Loaded library C:\Users\jespe\Documents\GitHub\OnlyUp\run\libraries\org\jetbrains\annotations\13.0\annotations-13.0.jar
+[21:23:19] [Server thread/INFO]: [OnlyUp] Loading server plugin OnlyUp v1.1.0
+[21:23:19] [Server thread/INFO]: Server permissions file permissions.yml is empty, ignoring it
+[21:23:19] [Server thread/INFO]: [OnlyUp] Enabling OnlyUp v1.1.0
+[21:23:19] [Server thread/INFO]: [CommandAPI] Loaded platform NMS_1_21_R3 > NMS_Common > CommandAPIBukkit
+[21:23:19] [Server thread/INFO]: [CommandAPI] Hooked into Spigot successfully for Chat/ChatComponents
+[21:23:19] [Server thread/INFO]: [CommandAPI] Hooked into Adventure for AdventureChat/AdventureChatComponents
+[21:23:19] [Server thread/INFO]: [CommandAPI] Hooked into Paper for paper-specific API implementations
+[21:23:19] [Server thread/INFO]: [CommandAPI] Hooked into Paper ServerResourcesReloadedEvent
+[21:23:19] [Server thread/INFO]: Preparing level "world"
+[21:23:20] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
+[21:23:20] [Server thread/INFO]: Preparing spawn area: 0%
+[21:23:20] [Server thread/INFO]: Preparing spawn area: 0%
+[21:23:20] [Server thread/INFO]: Time elapsed: 587 ms
+[21:23:20] [Server thread/INFO]: Preparing start region for dimension minecraft:the_nether
+[21:23:20] [Server thread/INFO]: Preparing spawn area: 0%
+[21:23:20] [Server thread/INFO]: Time elapsed: 74 ms
+[21:23:20] [Server thread/INFO]: Preparing start region for dimension minecraft:the_end
+[21:23:20] [Server thread/INFO]: Preparing spawn area: 0%
+[21:23:20] [Server thread/INFO]: Time elapsed: 72 ms
+[21:23:21] [Server thread/INFO]: [spark] Starting background profiler...
+[21:23:21] [Server thread/INFO]: [spark] The async-profiler engine is not supported for your os/arch (windows11/amd64), so the built-in Java engine will be used instead.
+[21:23:21] [Server thread/INFO]: Done preparing level "world" (1.206s)
+[21:23:21] [Server thread/INFO]: Running delayed init tasks
+[21:23:21] [Server thread/INFO]: [CommandAPI] Reloading datapacks...
+[21:23:21] [Server thread/INFO]: Loaded 1370 recipes
+[21:23:21] [Server thread/INFO]: Loaded 1481 advancements
+[21:23:21] [Server thread/INFO]: [CommandAPI] Finished reloading datapacks
+[21:23:21] [Server thread/INFO]: Done (12.169s)! For help, type "help"
+[21:23:37] [User Authenticator #0/INFO]: UUID of player jesforge is d52e14ce-5bce-4359-8764-399674a3d2aa
+[21:23:38] [Server thread/INFO]: jesforge joined the game
+[21:23:38] [Server thread/INFO]: jesforge[/127.0.0.1:50966] logged in with entity id 92 at ([world]17.46851951308825, 23.0, 15.747451485976443)
+[21:23:39] [Server thread/ERROR]: Could not pass event PlayerMoveEvent to OnlyUp v1.1.0
+java.time.format.DateTimeParseException: Text 'PT0.001S' could not be parsed at index 0
+	at java.base/java.time.format.DateTimeFormatter.parseResolved0(DateTimeFormatter.java:2108) ~[?:?]
+	at java.base/java.time.format.DateTimeFormatter.parse(DateTimeFormatter.java:2010) ~[?:?]
+	at java.base/java.time.Instant.parse(Instant.java:398) ~[?:?]
+	at OnlyUp-1.1.0-all-1740687790963.jar/net.crystopia.onlyup.TimeParser.parseDuration(TimeParser.kt:10) ~[OnlyUp-1.1.0-all-1740687790963.jar:?]
+	at OnlyUp-1.1.0-all-1740687790963.jar/net.crystopia.onlyup.events.PlayerEventListener.onPlayerMove(PlayerEventListener.kt:91) ~[OnlyUp-1.1.0-all-1740687790963.jar:?]
+	at co.aikar.timings.TimedEventExecutor.execute(TimedEventExecutor.java:80) ~[paper-api-1.21.4-R0.1-SNAPSHOT.jar:?]
+	at org.bukkit.plugin.RegisteredListener.callEvent(RegisteredListener.java:70) ~[paper-api-1.21.4-R0.1-SNAPSHOT.jar:?]
+	at io.papermc.paper.plugin.manager.PaperEventManager.callEvent(PaperEventManager.java:54) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at io.papermc.paper.plugin.manager.PaperPluginManagerImpl.callEvent(PaperPluginManagerImpl.java:131) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at org.bukkit.plugin.SimplePluginManager.callEvent(SimplePluginManager.java:628) ~[paper-api-1.21.4-R0.1-SNAPSHOT.jar:?]
+	at net.minecraft.server.network.ServerGamePacketListenerImpl.handleMovePlayer(ServerGamePacketListenerImpl.java:1538) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.network.protocol.game.ServerboundMovePlayerPacket.handle(ServerboundMovePlayerPacket.java:61) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.network.protocol.game.ServerboundMovePlayerPacket$Rot.handle(ServerboundMovePlayerPacket.java:168) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.network.protocol.PacketUtils.lambda$ensureRunningOnSameThread$0(PacketUtils.java:29) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.TickTask.run(TickTask.java:18) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.util.thread.BlockableEventLoop.doRunTask(BlockableEventLoop.java:155) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.util.thread.ReentrantBlockableEventLoop.doRunTask(ReentrantBlockableEventLoop.java:24) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.doRunTask(MinecraftServer.java:1448) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.doRunTask(MinecraftServer.java:176) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.util.thread.BlockableEventLoop.pollTask(BlockableEventLoop.java:129) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.pollTaskInternal(MinecraftServer.java:1428) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.pollTask(MinecraftServer.java:1422) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.util.thread.BlockableEventLoop.managedBlock(BlockableEventLoop.java:139) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.managedBlock(MinecraftServer.java:1379) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.waitUntilNextTick(MinecraftServer.java:1387) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1264) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:310) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[?:?]
+[21:23:39] [Server thread/ERROR]: Could not pass event PlayerMoveEvent to OnlyUp v1.1.0
+java.time.format.DateTimeParseException: Text 'PT0.001S' could not be parsed at index 0
+	at java.base/java.time.format.DateTimeFormatter.parseResolved0(DateTimeFormatter.java:2108) ~[?:?]
+	at java.base/java.time.format.DateTimeFormatter.parse(DateTimeFormatter.java:2010) ~[?:?]
+	at java.base/java.time.Instant.parse(Instant.java:398) ~[?:?]
+	at OnlyUp-1.1.0-all-1740687790963.jar/net.crystopia.onlyup.TimeParser.parseDuration(TimeParser.kt:10) ~[OnlyUp-1.1.0-all-1740687790963.jar:?]
+	at OnlyUp-1.1.0-all-1740687790963.jar/net.crystopia.onlyup.events.PlayerEventListener.onPlayerMove(PlayerEventListener.kt:91) ~[OnlyUp-1.1.0-all-1740687790963.jar:?]
+	at co.aikar.timings.TimedEventExecutor.execute(TimedEventExecutor.java:80) ~[paper-api-1.21.4-R0.1-SNAPSHOT.jar:?]
+	at org.bukkit.plugin.RegisteredListener.callEvent(RegisteredListener.java:70) ~[paper-api-1.21.4-R0.1-SNAPSHOT.jar:?]
+	at io.papermc.paper.plugin.manager.PaperEventManager.callEvent(PaperEventManager.java:54) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at io.papermc.paper.plugin.manager.PaperPluginManagerImpl.callEvent(PaperPluginManagerImpl.java:131) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at org.bukkit.plugin.SimplePluginManager.callEvent(SimplePluginManager.java:628) ~[paper-api-1.21.4-R0.1-SNAPSHOT.jar:?]
+	at net.minecraft.server.network.ServerGamePacketListenerImpl.handleMovePlayer(ServerGamePacketListenerImpl.java:1538) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.network.protocol.game.ServerboundMovePlayerPacket.handle(ServerboundMovePlayerPacket.java:61) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.network.protocol.game.ServerboundMovePlayerPacket$Rot.handle(ServerboundMovePlayerPacket.java:168) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.network.protocol.PacketUtils.lambda$ensureRunningOnSameThread$0(PacketUtils.java:29) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.TickTask.run(TickTask.java:18) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.util.thread.BlockableEventLoop.doRunTask(BlockableEventLoop.java:155) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.util.thread.ReentrantBlockableEventLoop.doRunTask(ReentrantBlockableEventLoop.java:24) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.doRunTask(MinecraftServer.java:1448) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.doRunTask(MinecraftServer.java:176) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.util.thread.BlockableEventLoop.pollTask(BlockableEventLoop.java:129) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.pollTaskInternal(MinecraftServer.java:1428) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.pollTask(MinecraftServer.java:1422) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.util.thread.BlockableEventLoop.managedBlock(BlockableEventLoop.java:139) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.managedBlock(MinecraftServer.java:1379) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.waitUntilNextTick(MinecraftServer.java:1387) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1264) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:310) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[?:?]
+[21:23:39] [Server thread/ERROR]: Could not pass event PlayerMoveEvent to OnlyUp v1.1.0
+java.time.format.DateTimeParseException: Text 'PT0.001S' could not be parsed at index 0
+	at java.base/java.time.format.DateTimeFormatter.parseResolved0(DateTimeFormatter.java:2108) ~[?:?]
+	at java.base/java.time.format.DateTimeFormatter.parse(DateTimeFormatter.java:2010) ~[?:?]
+	at java.base/java.time.Instant.parse(Instant.java:398) ~[?:?]
+	at OnlyUp-1.1.0-all-1740687790963.jar/net.crystopia.onlyup.TimeParser.parseDuration(TimeParser.kt:10) ~[OnlyUp-1.1.0-all-1740687790963.jar:?]
+	at OnlyUp-1.1.0-all-1740687790963.jar/net.crystopia.onlyup.events.PlayerEventListener.onPlayerMove(PlayerEventListener.kt:91) ~[OnlyUp-1.1.0-all-1740687790963.jar:?]
+	at co.aikar.timings.TimedEventExecutor.execute(TimedEventExecutor.java:80) ~[paper-api-1.21.4-R0.1-SNAPSHOT.jar:?]
+	at org.bukkit.plugin.RegisteredListener.callEvent(RegisteredListener.java:70) ~[paper-api-1.21.4-R0.1-SNAPSHOT.jar:?]
+	at io.papermc.paper.plugin.manager.PaperEventManager.callEvent(PaperEventManager.java:54) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at io.papermc.paper.plugin.manager.PaperPluginManagerImpl.callEvent(PaperPluginManagerImpl.java:131) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at org.bukkit.plugin.SimplePluginManager.callEvent(SimplePluginManager.java:628) ~[paper-api-1.21.4-R0.1-SNAPSHOT.jar:?]
+	at net.minecraft.server.network.ServerGamePacketListenerImpl.handleMovePlayer(ServerGamePacketListenerImpl.java:1538) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.network.protocol.game.ServerboundMovePlayerPacket.handle(ServerboundMovePlayerPacket.java:61) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.network.protocol.game.ServerboundMovePlayerPacket$Pos.handle(ServerboundMovePlayerPacket.java:100) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.network.protocol.PacketUtils.lambda$ensureRunningOnSameThread$0(PacketUtils.java:29) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.TickTask.run(TickTask.java:18) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.util.thread.BlockableEventLoop.doRunTask(BlockableEventLoop.java:155) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.util.thread.ReentrantBlockableEventLoop.doRunTask(ReentrantBlockableEventLoop.java:24) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.doRunTask(MinecraftServer.java:1448) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.doRunTask(MinecraftServer.java:176) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.util.thread.BlockableEventLoop.pollTask(BlockableEventLoop.java:129) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.pollTaskInternal(MinecraftServer.java:1428) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.pollTask(MinecraftServer.java:1422) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.util.thread.BlockableEventLoop.managedBlock(BlockableEventLoop.java:139) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.managedBlock(MinecraftServer.java:1379) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.waitUntilNextTick(MinecraftServer.java:1387) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1264) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:310) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[?:?]
+[21:23:39] [Server thread/ERROR]: Could not pass event PlayerMoveEvent to OnlyUp v1.1.0
+java.time.format.DateTimeParseException: Text 'PT0.001S' could not be parsed at index 0
+	at java.base/java.time.format.DateTimeFormatter.parseResolved0(DateTimeFormatter.java:2108) ~[?:?]
+	at java.base/java.time.format.DateTimeFormatter.parse(DateTimeFormatter.java:2010) ~[?:?]
+	at java.base/java.time.Instant.parse(Instant.java:398) ~[?:?]
+	at OnlyUp-1.1.0-all-1740687790963.jar/net.crystopia.onlyup.TimeParser.parseDuration(TimeParser.kt:10) ~[OnlyUp-1.1.0-all-1740687790963.jar:?]
+	at OnlyUp-1.1.0-all-1740687790963.jar/net.crystopia.onlyup.events.PlayerEventListener.onPlayerMove(PlayerEventListener.kt:91) ~[OnlyUp-1.1.0-all-1740687790963.jar:?]
+	at co.aikar.timings.TimedEventExecutor.execute(TimedEventExecutor.java:80) ~[paper-api-1.21.4-R0.1-SNAPSHOT.jar:?]
+	at org.bukkit.plugin.RegisteredListener.callEvent(RegisteredListener.java:70) ~[paper-api-1.21.4-R0.1-SNAPSHOT.jar:?]
+	at io.papermc.paper.plugin.manager.PaperEventManager.callEvent(PaperEventManager.java:54) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at io.papermc.paper.plugin.manager.PaperPluginManagerImpl.callEvent(PaperPluginManagerImpl.java:131) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at org.bukkit.plugin.SimplePluginManager.callEvent(SimplePluginManager.java:628) ~[paper-api-1.21.4-R0.1-SNAPSHOT.jar:?]
+	at net.minecraft.server.network.ServerGamePacketListenerImpl.handleMovePlayer(ServerGamePacketListenerImpl.java:1538) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.network.protocol.game.ServerboundMovePlayerPacket.handle(ServerboundMovePlayerPacket.java:61) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.network.protocol.game.ServerboundMovePlayerPacket$Pos.handle(ServerboundMovePlayerPacket.java:100) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.network.protocol.PacketUtils.lambda$ensureRunningOnSameThread$0(PacketUtils.java:29) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.TickTask.run(TickTask.java:18) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.util.thread.BlockableEventLoop.doRunTask(BlockableEventLoop.java:155) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.util.thread.ReentrantBlockableEventLoop.doRunTask(ReentrantBlockableEventLoop.java:24) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.doRunTask(MinecraftServer.java:1448) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.doRunTask(MinecraftServer.java:176) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.util.thread.BlockableEventLoop.pollTask(BlockableEventLoop.java:129) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.pollTaskInternal(MinecraftServer.java:1428) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.pollTask(MinecraftServer.java:1422) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.util.thread.BlockableEventLoop.managedBlock(BlockableEventLoop.java:139) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.managedBlock(MinecraftServer.java:1379) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.waitUntilNextTick(MinecraftServer.java:1387) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1264) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:310) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[?:?]
+[21:23:39] [Server thread/ERROR]: Could not pass event PlayerMoveEvent to OnlyUp v1.1.0
+java.time.format.DateTimeParseException: Text 'PT0.001S' could not be parsed at index 0
+	at java.base/java.time.format.DateTimeFormatter.parseResolved0(DateTimeFormatter.java:2108) ~[?:?]
+	at java.base/java.time.format.DateTimeFormatter.parse(DateTimeFormatter.java:2010) ~[?:?]
+	at java.base/java.time.Instant.parse(Instant.java:398) ~[?:?]
+	at OnlyUp-1.1.0-all-1740687790963.jar/net.crystopia.onlyup.TimeParser.parseDuration(TimeParser.kt:10) ~[OnlyUp-1.1.0-all-1740687790963.jar:?]
+	at OnlyUp-1.1.0-all-1740687790963.jar/net.crystopia.onlyup.events.PlayerEventListener.onPlayerMove(PlayerEventListener.kt:91) ~[OnlyUp-1.1.0-all-1740687790963.jar:?]
+	at co.aikar.timings.TimedEventExecutor.execute(TimedEventExecutor.java:80) ~[paper-api-1.21.4-R0.1-SNAPSHOT.jar:?]
+	at org.bukkit.plugin.RegisteredListener.callEvent(RegisteredListener.java:70) ~[paper-api-1.21.4-R0.1-SNAPSHOT.jar:?]
+	at io.papermc.paper.plugin.manager.PaperEventManager.callEvent(PaperEventManager.java:54) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at io.papermc.paper.plugin.manager.PaperPluginManagerImpl.callEvent(PaperPluginManagerImpl.java:131) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at org.bukkit.plugin.SimplePluginManager.callEvent(SimplePluginManager.java:628) ~[paper-api-1.21.4-R0.1-SNAPSHOT.jar:?]
+	at net.minecraft.server.network.ServerGamePacketListenerImpl.handleMovePlayer(ServerGamePacketListenerImpl.java:1538) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.network.protocol.game.ServerboundMovePlayerPacket.handle(ServerboundMovePlayerPacket.java:61) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.network.protocol.game.ServerboundMovePlayerPacket$PosRot.handle(ServerboundMovePlayerPacket.java:132) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.network.protocol.PacketUtils.lambda$ensureRunningOnSameThread$0(PacketUtils.java:29) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.TickTask.run(TickTask.java:18) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.util.thread.BlockableEventLoop.doRunTask(BlockableEventLoop.java:155) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.util.thread.ReentrantBlockableEventLoop.doRunTask(ReentrantBlockableEventLoop.java:24) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.doRunTask(MinecraftServer.java:1448) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.doRunTask(MinecraftServer.java:176) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.util.thread.BlockableEventLoop.pollTask(BlockableEventLoop.java:129) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.pollTaskInternal(MinecraftServer.java:1428) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.pollTask(MinecraftServer.java:1422) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.util.thread.BlockableEventLoop.managedBlock(BlockableEventLoop.java:139) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.managedBlock(MinecraftServer.java:1379) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.waitUntilNextTick(MinecraftServer.java:1387) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1264) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:310) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[?:?]
+[21:23:39] [Server thread/ERROR]: Could not pass event PlayerMoveEvent to OnlyUp v1.1.0
+java.time.format.DateTimeParseException: Text 'PT0.001S' could not be parsed at index 0
+	at java.base/java.time.format.DateTimeFormatter.parseResolved0(DateTimeFormatter.java:2108) ~[?:?]
+	at java.base/java.time.format.DateTimeFormatter.parse(DateTimeFormatter.java:2010) ~[?:?]
+	at java.base/java.time.Instant.parse(Instant.java:398) ~[?:?]
+	at OnlyUp-1.1.0-all-1740687790963.jar/net.crystopia.onlyup.TimeParser.parseDuration(TimeParser.kt:10) ~[OnlyUp-1.1.0-all-1740687790963.jar:?]
+	at OnlyUp-1.1.0-all-1740687790963.jar/net.crystopia.onlyup.events.PlayerEventListener.onPlayerMove(PlayerEventListener.kt:91) ~[OnlyUp-1.1.0-all-1740687790963.jar:?]
+	at co.aikar.timings.TimedEventExecutor.execute(TimedEventExecutor.java:80) ~[paper-api-1.21.4-R0.1-SNAPSHOT.jar:?]
+	at org.bukkit.plugin.RegisteredListener.callEvent(RegisteredListener.java:70) ~[paper-api-1.21.4-R0.1-SNAPSHOT.jar:?]
+	at io.papermc.paper.plugin.manager.PaperEventManager.callEvent(PaperEventManager.java:54) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at io.papermc.paper.plugin.manager.PaperPluginManagerImpl.callEvent(PaperPluginManagerImpl.java:131) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at org.bukkit.plugin.SimplePluginManager.callEvent(SimplePluginManager.java:628) ~[paper-api-1.21.4-R0.1-SNAPSHOT.jar:?]
+	at net.minecraft.server.network.ServerGamePacketListenerImpl.handleMovePlayer(ServerGamePacketListenerImpl.java:1538) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.network.protocol.game.ServerboundMovePlayerPacket.handle(ServerboundMovePlayerPacket.java:61) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.network.protocol.game.ServerboundMovePlayerPacket$PosRot.handle(ServerboundMovePlayerPacket.java:132) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.network.protocol.PacketUtils.lambda$ensureRunningOnSameThread$0(PacketUtils.java:29) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.TickTask.run(TickTask.java:18) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.util.thread.BlockableEventLoop.doRunTask(BlockableEventLoop.java:155) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.util.thread.ReentrantBlockableEventLoop.doRunTask(ReentrantBlockableEventLoop.java:24) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.doRunTask(MinecraftServer.java:1448) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.doRunTask(MinecraftServer.java:176) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.util.thread.BlockableEventLoop.pollTask(BlockableEventLoop.java:129) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.pollTaskInternal(MinecraftServer.java:1428) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.pollTask(MinecraftServer.java:1422) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.util.thread.BlockableEventLoop.managedBlock(BlockableEventLoop.java:139) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.managedBlock(MinecraftServer.java:1379) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.waitUntilNextTick(MinecraftServer.java:1387) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1264) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:310) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[?:?]
+[21:23:39] [Server thread/ERROR]: Could not pass event PlayerMoveEvent to OnlyUp v1.1.0
+java.time.format.DateTimeParseException: Text 'PT0.001S' could not be parsed at index 0
+	at java.base/java.time.format.DateTimeFormatter.parseResolved0(DateTimeFormatter.java:2108) ~[?:?]
+	at java.base/java.time.format.DateTimeFormatter.parse(DateTimeFormatter.java:2010) ~[?:?]
+	at java.base/java.time.Instant.parse(Instant.java:398) ~[?:?]
+	at OnlyUp-1.1.0-all-1740687790963.jar/net.crystopia.onlyup.TimeParser.parseDuration(TimeParser.kt:10) ~[OnlyUp-1.1.0-all-1740687790963.jar:?]
+	at OnlyUp-1.1.0-all-1740687790963.jar/net.crystopia.onlyup.events.PlayerEventListener.onPlayerMove(PlayerEventListener.kt:91) ~[OnlyUp-1.1.0-all-1740687790963.jar:?]
+	at co.aikar.timings.TimedEventExecutor.execute(TimedEventExecutor.java:80) ~[paper-api-1.21.4-R0.1-SNAPSHOT.jar:?]
+	at org.bukkit.plugin.RegisteredListener.callEvent(RegisteredListener.java:70) ~[paper-api-1.21.4-R0.1-SNAPSHOT.jar:?]
+	at io.papermc.paper.plugin.manager.PaperEventManager.callEvent(PaperEventManager.java:54) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at io.papermc.paper.plugin.manager.PaperPluginManagerImpl.callEvent(PaperPluginManagerImpl.java:131) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at org.bukkit.plugin.SimplePluginManager.callEvent(SimplePluginManager.java:628) ~[paper-api-1.21.4-R0.1-SNAPSHOT.jar:?]
+	at net.minecraft.server.network.ServerGamePacketListenerImpl.handleMovePlayer(ServerGamePacketListenerImpl.java:1538) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.network.protocol.game.ServerboundMovePlayerPacket.handle(ServerboundMovePlayerPacket.java:61) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.network.protocol.game.ServerboundMovePlayerPacket$Pos.handle(ServerboundMovePlayerPacket.java:100) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.network.protocol.PacketUtils.lambda$ensureRunningOnSameThread$0(PacketUtils.java:29) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.TickTask.run(TickTask.java:18) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.util.thread.BlockableEventLoop.doRunTask(BlockableEventLoop.java:155) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.util.thread.ReentrantBlockableEventLoop.doRunTask(ReentrantBlockableEventLoop.java:24) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.doRunTask(MinecraftServer.java:1448) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.doRunTask(MinecraftServer.java:176) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.util.thread.BlockableEventLoop.pollTask(BlockableEventLoop.java:129) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.pollTaskInternal(MinecraftServer.java:1428) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.pollTask(MinecraftServer.java:1422) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.util.thread.BlockableEventLoop.managedBlock(BlockableEventLoop.java:139) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.managedBlock(MinecraftServer.java:1379) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.waitUntilNextTick(MinecraftServer.java:1387) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1264) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:310) ~[paper-1.21.4.jar:1.21.4-185-0a6e743]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[?:?]

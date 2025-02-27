@@ -1,9 +1,0 @@
-onlyups:
-  '1':
-    world: world
-    start: '11, 23, 11'
-    end: '15, 23, 15'
-  '2':
-    world: world
-    start: '20, 30, 20'
-    end: '25, 30, 25'

@@ -24,6 +24,8 @@ settings:
   user-cache-size: 1000
   netty-threads: 4
   attribute:
+    maxAbsorption:
+      max: 2048.0
     maxHealth:
       max: 2048.0
     movementSpeed:
@@ -45,6 +47,7 @@ messages:
   outdated-server: Outdated server! I'm still on {0}
 world-settings:
   default:
+    unload-frozen-chunks: false
     below-zero-generation-in-existing-chunks: true
     merge-radius:
       exp: 3.0

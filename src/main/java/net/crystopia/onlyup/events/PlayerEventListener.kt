@@ -1,80 +1,108 @@
 package net.crystopia.onlyup.events
 
-import dev.lone.itemsadder.api.FontImages.FontImageWrapper
-import dev.lone.itemsadder.api.FontImages.TexturedInventoryWrapper
+import gg.flyte.twilight.gui.GUI.Companion.openInventory
+import gg.flyte.twilight.gui.gui
+import net.crystopia.onlyup.config.ConfigManager
 import net.crystopia.onlyup.OnlyUp
+import net.crystopia.onlyup.TimeParser
+import net.crystopia.onlyup.config.PlayerData
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.minimessage.MiniMessage
 import org.bukkit.Bukkit
-import org.bukkit.ChatColor
 import org.bukkit.Location
 import org.bukkit.Material
-import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.inventory.InventoryClickEvent
 import org.bukkit.event.player.PlayerInteractEvent
 import org.bukkit.event.player.PlayerMoveEvent
-import org.bukkit.event.world.WorldEvent
+import org.bukkit.event.player.PlayerQuitEvent
 import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.meta.SkullMeta
 import org.bukkit.scheduler.BukkitRunnable
+import java.io.ObjectInputFilter.Config
+import java.time.Duration
+import java.time.Instant
 import java.util.*
+import java.util.stream.Collectors
+import kotlin.collections.HashMap
 
 
 class PlayerEventListener(private val plugin: OnlyUp) : Listener {
-
-    val mm = MiniMessage.miniMessage()
-
-
-    private val playerTimers = HashMap<UUID, Long>()
-    private val playerBestTimes = plugin.getPlayerBestTimes().toMutableMap()
+    private val mm = MiniMessage.miniMessage()
+    private val timer = HashMap<String, Instant>()
 
     init {
         startActionBarUpdater()
     }
+
+    private fun isAtLocation(loc: Location, target: Location): Boolean {
+        return loc.x >= target.blockX - 0.5 || loc.x <= target.blockX + 0.5 && loc.y >= target.blockY - 0.5 || loc.y <= target.blockY + 0.5 && loc.z >= target.blockZ - 0.5 || loc.z <= target.blockZ + 0.5
+    }
+
+    // Time Fixen!!!!!
 
     @EventHandler
     fun onPlayerMove(event: PlayerMoveEvent) {
         val player = event.player
         val playerLoc = player.location
 
-        for ((key, locations) in plugin.startPoints) {
-            val (start, end) = locations
+        for (onlyup in ConfigManager.settings.onlyups) {
 
-            if (isAtLocation(playerLoc, start)) {
-                if (!playerTimers.containsKey(player.uniqueId)) {
-                    playerTimers[player.uniqueId] = System.currentTimeMillis()
-                    player.sendMessage("⁌ Timer started! - Good luck!")
+            // Handle Start OnlyUp
+            if (isAtLocation(
+                    playerLoc, Location(
+                        Bukkit.getWorld(onlyup.value.worldName),
+                        onlyup.value.start.x,
+                        onlyup.value.start.y,
+                        onlyup.value.start.y
+                    )
+                )
+            ) {
+                if (!timer.contains(player.uniqueId.toString())) {
+                    startActionBarUpdater()
+                    timer[player.uniqueId.toString()] = Instant.now()
+                    player.sendMessage(mm.deserialize("\n<color:#85c6ff>You started your Run! Good Luck and fun.</color>\n"))
                 }
-            } else if (isAtLocation(playerLoc, end)) {
-                val startTime = playerTimers[player.uniqueId] ?: return
-                val elapsed = System.currentTimeMillis() - startTime
-                playerTimers.remove(player.uniqueId)
-                val formattedTime = formatTime(elapsed)
-                val currentBestTime = playerBestTimes[player.uniqueId]
-                if (currentBestTime == null || elapsed < currentBestTime) {
-                    playerBestTimes[player.uniqueId] = elapsed
-                    plugin.updatePlayerTimeIfBetter(player.uniqueId, elapsed)
-                    player.sendMessage("⁌ §aNew best time! §7Time: $formattedTime")
-                    updatePlayerSkull(player, elapsed)
-                } else {
-                    player.sendMessage("⁌ §7Timer stopped! Time: $formattedTime")
+            }
+
+            // Handle End OnlyUp
+            if (isAtLocation(
+                    playerLoc, Location(
+                        Bukkit.getWorld(onlyup.value.worldName),
+                        onlyup.value.end.x,
+                        onlyup.value.end.y,
+                        onlyup.value.end.y
+                    )
+                ) && timer.containsKey(player.uniqueId.toString())
+            ) {
+                val playerId = player.uniqueId.toString()
+                val startTime = timer[playerId] ?: return
+
+                if (!ConfigManager.players.players.contains(playerId)) {
+                    ConfigManager.players.players[playerId] = PlayerData(
+                        name = player.name,
+                        uuid = playerId,
+                        time = startTime.toString(),
+                        bestTime = startTime.toString()
+                    )
                 }
+
+                val newTime = TimeParser().parseDuration(startTime.toString())
+                val bestTime = TimeParser().parseDuration(ConfigManager.players.players[playerId]?.bestTime!!)
+
+                if (newTime < bestTime) {
+                    player.sendMessage(mm.deserialize("You have a new best time $newTime (${bestTime})"))
+                    ConfigManager.players.players[playerId] = PlayerData(
+                        name = player.name, uuid = playerId, time = newTime.toString(), bestTime = newTime.toString()
+                    )
+                }
+
+                player.sendMessage(mm.deserialize("\n<color:#4fff4d><b>You did it, you needed exactly ${newTime}!</b></color>\n"))
             }
         }
     }
 
-    private fun isAtLocation(loc: Location, target: Location): Boolean {
-        return loc.blockX == target.blockX && loc.blockY == target.blockY && loc.blockZ == target.blockZ
-    }
-
-    private fun formatTime(elapsed: Long): String {
-        val hours = (elapsed / 3600000).toInt()
-        val minutes = ((elapsed % 3600000) / 60000).toInt()
-        val seconds = ((elapsed % 60000) / 1000).toInt()
-        return String.format("%02d:%02d:%02d", hours, minutes, seconds)
-    }
 
     @EventHandler
     fun onPlayerInteract(event: PlayerInteractEvent) {
@@ -82,12 +110,69 @@ class PlayerEventListener(private val plugin: OnlyUp) : Listener {
         val item = event.item ?: return
 
         if (item.type == Material.COMPASS && item.itemMeta?.hasCustomModelData() == true && item.itemMeta?.customModelData == 200) {
-            showTopPlayers(player)
+
+            var slot = 0
+
+            val complexGui = gui(mm.deserialize(ConfigManager.settings.leaderboardGuiName)) {
+                ConfigManager.players.players.forEach { player ->
+                    set(slot, ItemStack(Material.PLAYER_HEAD).apply {
+                        slot += 1
+                        val meta = this.itemMeta as SkullMeta
+
+                        meta.displayName(mm.deserialize("<color:#efff94>${OnlyUp.instance.server.getOfflinePlayer(player.value.uuid).name}</color>"))
+
+                        val lore: MutableList<Component> = mutableListOf(
+                            mm.deserialize("<i><color:#80ddff>Time: ${TimeParser().parseDuration(player.value.time)}</color></i>"),
+                            mm.deserialize("<i><color:#80ddff>Best Time: ${TimeParser().parseDuration(player.value.bestTime)}</color></i>")
+                        )
+                        meta.lore(lore)
+
+                        meta.owningPlayer = viewer
+
+                        this.itemMeta = meta
+                    }) {
+                        isCancelled = true
+                    }
+
+                }
+
+            }
+            player.openInventory(complexGui)
+
+
         }
 
         if (item.type == Material.BARRIER && item.itemMeta?.hasCustomModelData() == true && item.itemMeta?.customModelData == 210) {
-            playerTimers.remove(player.uniqueId)
-            player.sendMessage("⁌ §7Your Timer has been reset! - Try again!")
+
+            val complexGui = gui(mm.deserialize(ConfigManager.settings.resetGuiName)) {
+
+                // ResetGUI
+                set(12, ItemStack(Material.LIME_DYE).apply {
+                    val meta = this.itemMeta
+
+                    meta.displayName(mm.deserialize("<b><color:#8aff80>✅ Reset the Timer</color></b>"))
+
+                    this.itemMeta = meta
+                }) {
+                    isCancelled = true
+                    timer.remove(player.uniqueId.toString())
+                    player.sendMessage(mm.deserialize("<color:#4dff4a>You timer has been reset!</color>"))
+                    player.closeInventory()
+                }
+                // CloseGUI
+                set(14, ItemStack(Material.RED_DYE).apply {
+                    val meta = this.itemMeta
+
+                    meta.displayName(mm.deserialize("<color:#ff4340><b>❌ Cancel</b></color>"))
+
+                    this.itemMeta = meta
+                }) {
+                    isCancelled = true
+                    player.closeInventory()
+                }
+            }
+            player.openInventory(complexGui)
+
         }
     }
 
@@ -95,74 +180,25 @@ class PlayerEventListener(private val plugin: OnlyUp) : Listener {
     fun onInventoryClick(event: PlayerMoveEvent) {
         val player = event.player
         if (player.world !== Bukkit.getWorld("onlyup")) {
-            playerTimers.remove(player.uniqueId)
+            timer.remove(player.uniqueId.toString())
         }
-
-
     }
 
     @EventHandler
-    fun onInventoryClick(event: InventoryClickEvent) {
-        if (event.view.title == "§f:offset_-13:⇉") {
-            event.isCancelled = true
-        }
-    }
-
-    private fun showTopPlayers(player: Player) {
-        val topPlayers = playerBestTimes.entries.sortedBy { it.value }.take(10)
-
-
-        val inventory = Bukkit.createInventory(null, 27, "§f:offset_-13:⇉")
-
-        for ((index, entry) in topPlayers.withIndex()) {
-            val (uuid, time) = entry
-            val skull = ItemStack(Material.PLAYER_HEAD)
-            val meta = skull.itemMeta as SkullMeta
-            meta.owningPlayer = Bukkit.getOfflinePlayer(uuid)
-
-            meta.setDisplayName("§f${Bukkit.getOfflinePlayer(uuid).name}")
-
-            val parsedone: Component =
-                mm.deserialize("")
-            val parsedtwo: Component =
-                mm.deserialize(" <white>Best Time                        <gray>")
-            val parsedthree: Component =
-                mm.deserialize(" <strikethrough><gray>-</strikethrough> <gradient:#74D680:#378B29>${formatTime(time)}</gradient>")
-            val parsedfour: Component =
-                mm.deserialize(" ")
-            meta.lore(listOf(parsedone, parsedtwo, parsedthree, parsedfour))
-            skull.itemMeta = meta
-            inventory.setItem(index + 9, skull)  // Start from the second row
-        }
-
-        player.openInventory(inventory)
-    }
-
-    private fun updatePlayerSkull(player: Player, elapsed: Long) {
-        val topPlayers = playerBestTimes.entries.sortedBy { it.value }.take(10)
-        for ((index, entry) in topPlayers.withIndex()) {
-            if (entry.key == player.uniqueId) {
-                val time = entry.value
-                val skull = ItemStack(Material.PLAYER_HEAD)
-                val meta = skull.itemMeta as SkullMeta
-                meta.owningPlayer = Bukkit.getOfflinePlayer(entry.key)
-                meta.setDisplayName("${Bukkit.getOfflinePlayer(entry.key).name}: ${formatTime(time)}")
-                skull.itemMeta = meta
-                player.openInventory.topInventory.setItem(index + 9, skull)  // Start from the second row
-                break
-            }
-        }
+    fun onPlayerDisconnect(event: PlayerQuitEvent) {
+        timer.remove(event.player.uniqueId.toString())
     }
 
     private fun startActionBarUpdater() {
         object : BukkitRunnable() {
             override fun run() {
                 for (player in Bukkit.getOnlinePlayers()) {
-                    val startTime = playerTimers[player.uniqueId] ?: continue
-                    val elapsed = System.currentTimeMillis() - startTime
-                    player.sendActionBar("Time: ${formatTime(elapsed)}")
+                    val startTime = timer[player.uniqueId.toString()] ?: continue
+                    val elapsedTimes = Duration.between(startTime, Instant.now()).seconds
+                    player.sendActionBar(mm.deserialize("<color:#f3ff6e>Timer: $elapsedTimes</color>"))
                 }
             }
-        }.runTaskTimer(plugin, 0L, 20L)
+        }.runTaskTimer(OnlyUp.instance, 0L, 20L)
     }
+
 }
