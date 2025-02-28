@@ -2,6 +2,7 @@ package net.crystopia.onlyup.config
 
 import kotlinx.serialization.Serializable
 import org.bukkit.Material
+import java.time.Duration
 
 @Serializable
 data class SettingsData(
@@ -37,6 +38,6 @@ data class PlayersData(
 data class PlayerData(
     val uuid: String,
     val name: String,
-    val time: String,
-    val bestTime: String,
+    var time: kotlin.time.Duration,
+    var bestTime: kotlin.time.Duration,
 )
