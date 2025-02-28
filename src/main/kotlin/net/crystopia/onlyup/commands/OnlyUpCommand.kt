@@ -1,6 +1,10 @@
 ﻿package net.crystopia.onlyup.commands
 
 import dev.jorel.commandapi.CommandTree
+import dev.jorel.commandapi.executors.CommandExecutor
+import dev.jorel.commandapi.kotlindsl.commandTree
+import dev.jorel.commandapi.kotlindsl.literalArgument
+import net.crystopia.onlyup.config.ConfigManager
 import net.crystopia.onlyup.guis.OnlyUpSelectorGui
 import net.kyori.adventure.text.minimessage.MiniMessage
 import org.bukkit.Bukkit
@@ -10,9 +14,17 @@ import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
 
 class OnlyUpCommand {
-    val command = CommandTree("onlyup").executes(
-        dev.jorel.commandapi.executors.CommandExecutor { sender, commandArguments ->
+    val command = commandTree("onlyup") {
+        executes(CommandExecutor { sender, args ->
             val player = sender as Player
             OnlyUpSelectorGui().openGUI(player)
-        }).register()
+        })
+        literalArgument("reload") {
+            withPermission("crystopia.commands.onlyup.reload")
+            executes(CommandExecutor { sender, args ->
+                ConfigManager.reload()
+                sender.sendMessage("Reloaded config")
+            })
+        }
+    }
 }

@@ -27,3 +27,8 @@ inline fun <reified T : Any> File.saveConfig(config: T) {
     if (!exists() && parentFile != null) parentFile.mkdirs()
     writeText(json.encodeToString(config))
 }
+
+
+inline fun <reified T> loadFromFile(file: File): T {
+    return Json.decodeFromString<T>(file.readText())
+}

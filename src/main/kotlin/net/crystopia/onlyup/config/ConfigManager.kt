@@ -7,17 +7,22 @@ object ConfigManager {
     private val settingsFile = File("plugins/OnlyUp/config.json")
     private val playerFile = File("plugins/OnlyUp/players.json")
 
-    val settings = settingsFile.loadConfig(
+    var settings = settingsFile.loadConfig(
         SettingsData(
             leaderboardGuiName = "", resetGuiName = "", onlyUpGuiName = ""
         )
     )
 
-    val players = playerFile.loadConfig(PlayersData())
+    var players = playerFile.loadConfig(PlayersData())
 
     fun save() {
         settingsFile.writeText(json.encodeToString(settings))
         playerFile.writeText(json.encodeToString(players))
+    }
+
+    fun reload() {
+        settings = loadFromFile(settingsFile)
+        players = loadFromFile(playerFile)
     }
 
 }

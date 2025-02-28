@@ -13,6 +13,7 @@ import org.bukkit.Material
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.inventory.InventoryClickEvent
+import org.bukkit.event.inventory.InventoryType
 import org.bukkit.event.player.PlayerInteractEvent
 import org.bukkit.event.player.PlayerMoveEvent
 import org.bukkit.event.player.PlayerQuitEvent
@@ -140,27 +141,28 @@ class PlayerEventListener(private val plugin: OnlyUp) : Listener {
         }
 
         if (item.type == Material.BARRIER && item.itemMeta?.hasCustomModelData() == true && item.itemMeta?.customModelData == 210) {
-            val complexGui = gui(mm.deserialize(ConfigManager.settings.resetGuiName)) {
-                set(12, ItemStack(Material.LIME_DYE).apply {
-                    val meta = this.itemMeta
-                    meta.displayName(mm.deserialize("<b><color:#8aff80>✅ Reset the Timer</color></b>"))
-                    this.itemMeta = meta
-                }) {
-                    isCancelled = true
-                    timer.remove(player.uniqueId)
-                    player.sendMessage(mm.deserialize("<color:#4dff4a>Your timer has been reset!</color>"))
-                    player.closeInventory()
-                }
+            val complexGui =
+                gui(title = mm.deserialize(ConfigManager.settings.resetGuiName), type = InventoryType.HOPPER) {
+                    set(1, ItemStack(Material.LIME_DYE).apply {
+                        val meta = this.itemMeta
+                        meta.displayName(mm.deserialize("<b><color:#8aff80>✅ Reset the Timer</color></b>"))
+                        this.itemMeta = meta
+                    }) {
+                        isCancelled = true
+                        timer.remove(player.uniqueId)
+                        player.sendMessage(mm.deserialize("<color:#4dff4a>Your timer has been reset!</color>"))
+                        player.closeInventory()
+                    }
 
-                set(14, ItemStack(Material.RED_DYE).apply {
-                    val meta = this.itemMeta
-                    meta.displayName(mm.deserialize("<color:#ff4340><b>❌ Cancel</b></color>"))
-                    this.itemMeta = meta
-                }) {
-                    isCancelled = true
-                    player.closeInventory()
+                    set(3, ItemStack(Material.RED_DYE).apply {
+                        val meta = this.itemMeta
+                        meta.displayName(mm.deserialize("<color:#ff4340><b>❌ Cancel</b></color>"))
+                        this.itemMeta = meta
+                    }) {
+                        isCancelled = true
+                        player.closeInventory()
+                    }
                 }
-            }
             player.openInventory(complexGui)
         }
     }
