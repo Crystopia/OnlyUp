@@ -38,6 +38,11 @@ data class PlayersData(
 data class PlayerData(
     val uuid: String,
     val name: String,
+    var onlyups: MutableMap<String, TimeData>,
+)
+
+@Serializable
+data class TimeData(
     var time: kotlin.time.Duration,
     var bestTime: kotlin.time.Duration,
 )

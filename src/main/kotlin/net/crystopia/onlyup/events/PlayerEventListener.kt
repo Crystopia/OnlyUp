@@ -5,6 +5,7 @@ import gg.flyte.twilight.gui.gui
 import net.crystopia.onlyup.config.ConfigManager
 import net.crystopia.onlyup.OnlyUp
 import net.crystopia.onlyup.config.PlayerData
+import net.crystopia.onlyup.config.TimeData
 import net.kyori.adventure.text.minimessage.MiniMessage
 import org.bukkit.Bukkit
 import org.bukkit.Location
@@ -27,6 +28,7 @@ import kotlin.time.toKotlinDuration
 class PlayerEventListener(private val plugin: OnlyUp) : Listener {
     private val mm = MiniMessage.miniMessage()
     private val timer = HashMap<UUID, Instant>()
+    private val runOnlyup = HashMap<UUID, String>()
 
     init {
         startActionBarUpdater()
@@ -50,6 +52,7 @@ class PlayerEventListener(private val plugin: OnlyUp) : Listener {
             if (isExactLocation(playerLoc, startLocation)) {
                 if (!timer.containsKey(playerId)) {
                     timer[playerId] = Instant.now()
+                    runOnlyup[playerId] = onlyup.key
                     player.sendMessage(mm.deserialize("\n<color:#85c6ff>You started your run! Good luck!</color>\n"))
                 }
             }
@@ -64,28 +67,38 @@ class PlayerEventListener(private val plugin: OnlyUp) : Listener {
                     PlayerData(
                         name = player.name,
                         uuid = playerId.toString(),
-                        time = elapsed.toKotlinDuration(),
-                        bestTime = elapsed.toKotlinDuration(),
+                        onlyups = mutableMapOf(),
                     )
                 }
+                if (!playerData.onlyups.contains(runOnlyup[playerId])) {
+                    ConfigManager.players.players[playerId.toString()]!!.onlyups[runOnlyup[playerId].toString()] =
+                        TimeData(
+                            time = elapsed.toKotlinDuration(), bestTime = elapsed.toKotlinDuration()
+                        )
+                }
 
-                val bestTimeDuration = playerData.bestTime
+                ConfigManager.save()
+
+                val bestTimeDuration = playerData.onlyups[runOnlyup[playerId]]!!.bestTime
+
 
                 if (elapsed.toMillis() < bestTimeDuration.toJavaDuration().toMillis()) {
                     player.sendMessage(
                         mm.deserialize(
-                            "You have a new best time: ${elapsed.toMinutesPart()}m ${elapsed.toSecondsPart()}s (Previous: ${
+                            "<gray>You have a new best time: <color:#fff475>${elapsed.toMinutesPart()}m</color> <color:#fff475>${elapsed.toSecondsPart()}s</color> (Previous: <color:#fff475>${
                                 bestTimeDuration.toJavaDuration().toMinutesPart()
-                            }m ${bestTimeDuration.toJavaDuration().toSecondsPart()}s)"
+                            }m ${bestTimeDuration.toJavaDuration().toSecondsPart()}s</color>)</gray>"
                         )
                     )
-                    playerData.bestTime = elapsed.toKotlinDuration()
+                    playerData.onlyups[runOnlyup[playerId].toString()]!!.bestTime = elapsed.toKotlinDuration()
+                    ConfigManager.save()
                 }
 
-                playerData.time = elapsed.toKotlinDuration()
+                playerData.onlyups[runOnlyup[playerId]]!!.time = elapsed.toKotlinDuration()
                 ConfigManager.save()
 
                 player.sendMessage(mm.deserialize("\n<color:#4fff4d><b>You did it! Time: ${elapsed.toMinutesPart()}m ${elapsed.toSecondsPart()}s.</b></color>\n"))
+                runOnlyup.remove(playerId)
             }
 
         }
@@ -102,23 +115,22 @@ class PlayerEventListener(private val plugin: OnlyUp) : Listener {
                 ConfigManager.players.players.forEach { entry ->
                     set(slot++, ItemStack(Material.PLAYER_HEAD).apply {
                         val meta = this.itemMeta as SkullMeta
+                        meta.owningPlayer = player
                         meta.displayName(mm.deserialize("<color:#efff94>${entry.value.name}</color>"))
                         meta.lore(
-                            listOf(
-                                mm.deserialize(
-                                    "<i><color:#80ddff>Time: ${
-                                        entry.value.time.toJavaDuration().toMinutesPart()
-                                    }m ${
-                                        entry.value.time.toJavaDuration().toSecondsPart()
-                                    }s</color></i>"
-                                ), mm.deserialize(
-                                    "<i><color:#80ddff>Best Time: ${
-                                        entry.value.bestTime.toJavaDuration().toMinutesPart()
-                                    }m ${
-                                        entry.value.bestTime.toJavaDuration().toSecondsPart()
-                                    }s</color></i>"
+                            ConfigManager.players.players[player.uniqueId.toString()]!!.onlyups.map { (key, entry) ->
+                                listOf(
+                                    mm.deserialize(
+                                        "<i><color:#80ddff>$key - Time: ${
+                                            entry.time.toJavaDuration().toMinutesPart()
+                                        }m ${entry.time.toJavaDuration().toSecondsPart()}s</color></i>"
+                                    ), mm.deserialize(
+                                        "<i><color:#80ddff>$key - Best Time: ${
+                                            entry.bestTime.toJavaDuration().toMinutesPart()
+                                        }m ${entry.bestTime.toJavaDuration().toSecondsPart()}s</color></i>"
+                                    )
                                 )
-                            )
+                            }.flatten()
                         )
                         this.itemMeta = meta
                     }) { isCancelled = true }

@@ -31,16 +31,16 @@ repositories {
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT")
 
-    library(kotlin("stdlib"))
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.8.0")
+library(kotlin("stdlib"))
+implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.8.0")
 
-    implementation("gg.flyte:twilight:1.1.18")
+implementation("gg.flyte:twilight:1.1.18")
 
-    implementation("dev.jorel", "commandapi-bukkit-shade", "9.+")
-    implementation("dev.jorel", "commandapi-bukkit-kotlin", "9.+")
-    compileOnly("dev.jorel:commandapi-bukkit-core:9.+")
+implementation("dev.jorel", "commandapi-bukkit-shade", "9.+")
+implementation("dev.jorel", "commandapi-bukkit-kotlin", "9.+")
+compileOnly("dev.jorel:commandapi-bukkit-core:9.+")
 
-    compileOnly("com.github.LoneDev6", "API-ItemsAdder", "3.6.1")
+compileOnly("com.github.LoneDev6", "API-ItemsAdder", "3.6.1")
 }
 
 kotlin {
