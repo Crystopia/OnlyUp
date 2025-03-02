@@ -80,6 +80,11 @@ class PlayerEventListener(private val plugin: OnlyUp) : Listener {
 
                 ConfigManager.save()
 
+                if (onlyup.value.rewardCommand.length > 1) {
+                    val command = onlyup.value.rewardCommand
+                    OnlyUp.instance.server.dispatchCommand(OnlyUp.instance.server.consoleSender, command)
+                }
+
                 val bestTimeDuration = playerData.onlyups[runOnlyup[playerId]]!!.bestTime
 
 
@@ -113,29 +118,35 @@ class PlayerEventListener(private val plugin: OnlyUp) : Listener {
         if (item.type == Material.COMPASS && item.itemMeta?.hasCustomModelData() == true && item.itemMeta?.customModelData == 200) {
             var slot = 0
             val complexGui = gui(mm.deserialize(ConfigManager.settings.leaderboardGuiName)) {
-                ConfigManager.players.players.forEach { entry ->
-                    set(slot++, ItemStack(Material.PLAYER_HEAD).apply {
-                        val meta = this.itemMeta as SkullMeta
-                        meta.owningPlayer = player
-                        meta.displayName(mm.deserialize("<color:#efff94>${entry.value.name}</color>"))
-                        meta.lore(
-                            ConfigManager.players.players[player.uniqueId.toString()]!!.onlyups.map { (key, entry) ->
-                                listOf(
-                                    mm.deserialize(
-                                        "<i><color:#80ddff>$key - Time: ${
-                                            entry.time.toJavaDuration().toMinutesPart()
-                                        }m ${entry.time.toJavaDuration().toSecondsPart()}s</color></i>"
-                                    ), mm.deserialize(
-                                        "<i><color:#80ddff>$key - Best Time: ${
-                                            entry.bestTime.toJavaDuration().toMinutesPart()
-                                        }m ${entry.bestTime.toJavaDuration().toSecondsPart()}s</color></i>"
+                ConfigManager.players.players.values.sortedBy {
+                    it.onlyups.values.minOfOrNull { entry -> entry.bestTime.toJavaDuration().toMillis() }
+                        ?: Long.MAX_VALUE
+                } // Sortierung nach kleinstem BestTime-Wert
+                    .take(26) // Maximal 26 Spieler anzeigen
+                    .forEach { entry ->
+                        set(slot++, ItemStack(Material.PLAYER_HEAD).apply {
+                            val meta = this.itemMeta as SkullMeta
+                            meta.owningPlayer = player
+                            meta.displayName(mm.deserialize("<color:#efff94>${entry.name}</color>"))
+                            meta.lore(
+                                entry.onlyups.map { (key, entry) ->
+                                    listOf(
+                                        mm.deserialize(
+                                            "<i><color:#80ddff>$key - Time: ${
+                                                entry.time.toJavaDuration().toMinutesPart()
+                                            }m ${entry.time.toJavaDuration().toSecondsPart()}s</color></i>"
+                                        ), mm.deserialize(
+                                            "<i><color:#80ddff>$key - Best Time: ${
+                                                entry.bestTime.toJavaDuration().toMinutesPart()
+                                            }m ${entry.bestTime.toJavaDuration().toSecondsPart()}s</color></i>"
+                                        )
                                     )
-                                )
-                            }.flatten()
-                        )
-                        this.itemMeta = meta
-                    }) { isCancelled = true }
-                }
+                                }.flatten()
+                            )
+                            this.itemMeta = meta
+                        }) { isCancelled = true }
+                    }
+
             }
             player.openInventory(complexGui)
         }

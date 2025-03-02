@@ -14,7 +14,12 @@ data class SettingsData(
 
 @Serializable
 data class OnlyUpData(
-    val worldName: String, val start: PosData, val end: PosData, val spawn: PosData, val guiItem: GuiItemData
+    val worldName: String,
+    val start: PosData,
+    val end: PosData,
+    val spawn: PosData,
+    val guiItem: GuiItemData,
+    val rewardCommand: String
 )
 
 @Serializable
@@ -26,7 +31,7 @@ data class PosData(
 
 @Serializable
 data class GuiItemData(
-    val name: String, val lore: MutableList<String>, val material: Material, val customModelData: Int, val slot: Int
+    val name: String, val lore: MutableList<String>, val material: Material, val customModelData: Int, val slot: Int,
 )
 
 @Serializable
