@@ -69,7 +69,6 @@ tasks {
 
 bukkit {
     main = "$group.${projectName.lowercase()}.${projectName}"
-    apiVersion = "1.16"
     foliaSupported = foliaSupport
     // Optionals
     load = BukkitPluginDescription.PluginLoadOrder.STARTUP
